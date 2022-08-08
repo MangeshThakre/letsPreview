@@ -19,7 +19,22 @@
 .sectionOneContent >h1{
   font-family: Outfit,sans-serif;
   font-size: 4rem;
+  position: relative;
 
+}
+
+.sectionOneContent >h1 >span{
+  /* color: rgb(84, 58, 183); */
+  background: -webkit-linear-gradient( 180deg, #2f3ec2,rgb(84, 58, 183));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionOneContent >h1 >img{
+  position: absolute;
+   left: -80px;
+  top: 138px;
+transform: rotate(270deg);
 }
 
 .sectionOneContent  input {
@@ -34,16 +49,25 @@
 }
 
 .sectionOneContent  button{
-height: 2rem;
-width: 5rem;
-background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
-border: none;
-border-radius: 10px;
-margin: 2rem;
-cursor: pointer;
-color: white;
-font-family: Outfit,sans-serif;
-font-size: 17px;
+  height: 40px;
+  width: 8rem;
+  border: none;
+  border-radius: 10px;
+  margin: 2rem;
+  cursor: pointer;
+  color: white;
+  font-family: Outfit,sans-serif;
+  font-size: 17px;
+  background: rgb(84, 58, 183);
+  transition: all 0.3s ease;
+}
+
+.sectionOneContent  button:hover{
+  background: rgb(80, 50, 204);
+}
+
+.warning-loading {
+  height: 4rem;
 }
 
 .waves {

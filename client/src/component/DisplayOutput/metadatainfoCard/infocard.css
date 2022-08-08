@@ -42,3 +42,8 @@
   border: none;
   outline-color: #4e42b8;
 }
+
+.tags p {
+  display: flex;
+  align-items: center;
+}

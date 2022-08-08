@@ -6,7 +6,7 @@ class linkConstructor {
 
     function metaTags(og, key, value) {
       const obj = {};
-      console.log(key);
+      // console.log(key);
       for (const e of og) {
         obj[e.getAttribute(key)?.split(value)[1]] = e.getAttribute("content");
       }
@@ -14,9 +14,8 @@ class linkConstructor {
     }
 
     try {
-      const reaponse = await axios(url);
-
-      const data = await reaponse.data;
+      const response = await axios(url);
+      const data = await response.data;
       const { document } = new JSDOM(data).window;
       const fbOg = document.querySelectorAll(`meta[property^="og:"]`);
       const TwitterOg = document.querySelectorAll(`meta[name^="twitter:"]`);
@@ -33,9 +32,9 @@ class linkConstructor {
           ?.getAttribute("content"),
       };
 
-      res.json(Tags);
+      res.status(200).json(Tags);
     } catch (error) {
-      console.log(error);
+      res.status(500).send(error);
     }
   }
 }

@@ -3,6 +3,9 @@ import "./home.css";
 import { useState } from "react";
 import axios from "axios";
 import loadingSvg from "../../assets/loading.svg";
+import arrow from "../../assets/arrow.svg";
+import { positions } from "@mui/system";
+
 function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
   // const [url, setUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +23,7 @@ function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
 
   async function check() {
     if (!url) {
-      setWarning("this field is required");
+      setWarning("This field is required");
       setIsVallid(url);
     } else if (urlValidator(url)) {
       setIsLoading(true);
@@ -37,10 +40,13 @@ function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
         setShowInfo(true);
         document
           .querySelector(".container")
-          .scrollIntoView({ behavior: "smooth" });
+          .scrollIntoView({ behavior: "smooth", block: "start" });
       } catch (error) {
         console.log(error);
+        setWarning("Plese enter valid url");
         setIsVallid(false);
+        setIsLoading(false);
+        console.log(error);
       }
     } else {
       setIsLoading(false);
@@ -52,7 +58,10 @@ function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
   return (
     <div className="sectionOne">
       <div className="sectionOneContent">
-        <h1>Preview your Meta Tag Here</h1>
+        <h1>
+          Preview your <span>Meta Tag</span> Here
+          <img src={arrow} alt="arrow" />
+        </h1>
         <span>
           <input
             value={url}
@@ -66,13 +75,18 @@ function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
           />
           <button onClick={() => check()}>Click 👆</button>
         </span>
-        <div className="wardning-loading">
-          <div
-            className="wardning"
-            style={{ color: "red", fontStyle: "italic" }}
+        <div className="warning-loading">
+          <p
+            className="warning"
+            style={{
+              fontStyle: "italic",
+              position: "relative",
+              top: "-17px",
+              left: "35px",
+            }}
           >
             {!isValid ? warning : null}
-          </div>
+          </p>
           <div className="loading">
             {isLoading ? <img src={loadingSvg} alt="loading" /> : null}
           </div>
@@ -111,8 +125,6 @@ function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
           </g>
         </svg>
       </div>
-
-      <div></div>
     </div>
   );
 }

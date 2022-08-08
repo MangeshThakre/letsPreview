@@ -1,5 +1,7 @@
 import React from "react";
 import "./infocard.css";
+import DoneIcon from "@mui/icons-material/Done";
+import CloseIcon from "@mui/icons-material/Close";
 function InfoCard({
   title,
   setTitle,
@@ -45,14 +47,70 @@ function InfoCard({
       <div className="tags">
         <h1 className="heading-title">Meta Tags</h1>
 
-        <p>Title :{metaTags?.title ? "yes" : "no"} </p>
-        <p>Description :{metaTags?.description ? "yes" : "no"}</p>
-        <p>og:title :{metaTags?.og.title ? "yes" : "no"} </p>
-        <p>og:description :{metaTags?.og.description ? "yes" : "no"}</p>
-        <p>og:image :{metaTags?.og.image ? "yes" : "no"}</p>
-        <p>twitter:title :{metaTags?.tw.title ? "yes" : "no"}</p>
-        <p>twitter:description :{metaTags?.tw.description ? "yes" : "no"}</p>
-        <p>twitter:image {metaTags?.tw.image ? "yes" : "no"}</p>
+        <p>
+          Title :
+          {metaTags?.title ? (
+            <DoneIcon sx={{ color: "green" }} />
+          ) : (
+            <CloseIcon sx={{ color: "red" }} />
+          )}
+        </p>
+        <p>
+          Description :
+          {metaTags?.description ? (
+            <DoneIcon sx={{ color: "green" }} />
+          ) : (
+            <CloseIcon sx={{ color: "red" }} />
+          )}
+        </p>
+        <p>
+          og:title :
+          {metaTags?.og.title ? (
+            <DoneIcon sx={{ color: "green" }} />
+          ) : (
+            <CloseIcon sx={{ color: "red" }} />
+          )}
+        </p>
+        <p>
+          og:description :
+          {metaTags?.og.description ? (
+            <DoneIcon sx={{ color: "green" }} />
+          ) : (
+            <CloseIcon sx={{ color: "red" }} />
+          )}
+        </p>
+        <p>
+          og:image :
+          {metaTags?.og.image ? (
+            <DoneIcon sx={{ color: "green" }} />
+          ) : (
+            <CloseIcon sx={{ color: "red" }} />
+          )}
+        </p>
+        <p>
+          twitter:title :
+          {metaTags?.tw.title ? (
+            <DoneIcon sx={{ color: "green" }} />
+          ) : (
+            <CloseIcon sx={{ color: "red" }} />
+          )}
+        </p>
+        <p>
+          twitter:description :
+          {metaTags?.tw.description ? (
+            <DoneIcon sx={{ color: "green" }} />
+          ) : (
+            <CloseIcon sx={{ color: "red" }} />
+          )}
+        </p>
+        <p>
+          twitter:image
+          {metaTags?.tw.image ? (
+            <DoneIcon sx={{ color: "green" }} />
+          ) : (
+            <CloseIcon sx={{ color: "red" }} />
+          )}
+        </p>
       </div>
     </div>
   );

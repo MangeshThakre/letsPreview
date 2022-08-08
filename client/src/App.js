@@ -14,7 +14,11 @@ function App() {
 
   useEffect(() => {
     setTitle(metaTags.title ? metaTags?.title : metaTags?.og?.title);
-    setImage(metaTags.og?.image);
+     if (metaTags?.og?.image && !metaTags?.og?.image.includes("http")) {
+       setImage(metaTags?.url?.join("//") + metaTags?.og?.image);
+     } else {
+       setImage(metaTags?.og?.image);
+     }
     setDescription(
       metaTags?.description
         ? metaTags?.og?.description
