@@ -7,7 +7,6 @@ import arrow from "../../assets/arrow.svg";
 import { positions } from "@mui/system";
 
 function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
-  // const [url, setUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isValid, setIsVallid] = useState(true);
   const [warning, setWarning] = useState("");
