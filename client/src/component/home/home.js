@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import loadingSvg from "../../assets/loading.svg";
 import arrow from "../../assets/arrow.svg";
-
+lhflghdlkf;
 function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isValid, setIsVallid] = useState(true);

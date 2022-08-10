@@ -7,7 +7,7 @@ function In({ image, title, description, url, fullUrl }) {
     Newurl = url[1].split("www.")[1];
   }
   const previewImg = image ? image : info;
-
+  //
   return (
     <a href={fullUrl} target="_blank">
       <div className="linkedin">
