@@ -4,7 +4,6 @@ import { useState } from "react";
 import axios from "axios";
 import loadingSvg from "../../assets/loading.svg";
 import arrow from "../../assets/arrow.svg";
-import { positions } from "@mui/system";
 
 function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
   const [isLoading, setIsLoading] = useState(false);
