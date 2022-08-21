@@ -14,11 +14,11 @@ function App() {
 
   useEffect(() => {
     setTitle(metaTags.title ? metaTags?.title : metaTags?.og?.title);
-     if (metaTags?.og?.image && !metaTags?.og?.image.includes("http")) {
-       setImage(metaTags?.url?.join("//") + metaTags?.og?.image);
-     } else {
-       setImage(metaTags?.og?.image);
-     }
+    if (metaTags?.og?.image && !metaTags?.og?.image.includes("http")) {
+      setImage(metaTags?.url?.join("//") + metaTags?.og?.image);
+    } else {
+      setImage(metaTags?.og?.image);
+    }
     setDescription(
       metaTags?.description
         ? metaTags?.og?.description
@@ -67,6 +67,18 @@ function App() {
             />
           </>
         ) : null}
+        <a
+          href="https://mangeshthakre.herokuapp.com"
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            margin: "1rem 0",
+            cursor: "pointer",
+          }}
+        >
+          Build by Mangesh Thakre 🤖
+        </a>
       </div>
     </div>
   );
