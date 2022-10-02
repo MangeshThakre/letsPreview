@@ -26,7 +26,9 @@ class linkConstructor {
       if (icon) favIconHref = icon;
       if (shortIcon) favIconHref = shortIcon;
       // if favIconHref dont full link then concate the favincon with base url and return
-      if (favIconHref.indexOf("/") == 0) {
+      if (favIconHref == "") {
+        return "https://" + req.headers.host + "/static/faviconNotFound.png";
+      } else if (favIconHref.indexOf("/") == 0) {
         return url.split("/")[0] + url.split("/")[2] + favIconHref;
       } else return favIconHref;
     }

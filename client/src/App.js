@@ -34,7 +34,6 @@ function App() {
   //     const window = parser.parseFromString(data, "text/html");
   //     // console.log(window.querySelectorAll("meta"));
   //   }
-
   //   fun();
   // });
 
