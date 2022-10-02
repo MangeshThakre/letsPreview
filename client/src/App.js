@@ -69,6 +69,7 @@ function App() {
         ) : null}
         <a
           href="https://mangeshthakre.herokuapp.com"
+          target="_blank"
           style={{
             width: "100%",
             display: "flex",
