@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import loadingSvg from "../../assets/loading.svg";
 import arrow from "../../assets/arrow.svg";
-function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
+function Home({ setMetaTegs, setShowInfo, url, setUrl, notify }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isValid, setIsVallid] = useState(true);
   const [warning, setWarning] = useState("");
@@ -30,7 +30,7 @@ function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
           url: URL + "/api/url?url=" + url,
           headers: { "content-type": "applicaation/json" },
         });
-        const data = await response.data;
+        const data = await response.data.data;
         setIsLoading(false);
         setIsVallid(true);
         setMetaTegs(data);
@@ -39,8 +39,7 @@ function Home({ setMetaTegs, setShowInfo, url, setUrl }) {
           .querySelector(".container")
           .scrollIntoView({ behavior: "smooth", block: "start" });
       } catch (error) {
-        console.log(error);
-        setWarning("Plese enter valid url");
+        notify(error.response.data.message, "error");
         setIsVallid(false);
         setIsLoading(false);
         console.log(error);

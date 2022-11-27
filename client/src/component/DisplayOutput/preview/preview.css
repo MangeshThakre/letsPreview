@@ -100,3 +100,25 @@
 .linkedin {
   border: solid 1px rgba(169, 169, 169, 0.29);
 }
+
+@media (max-width: 768px) {
+  .preview > div {
+    width: 20rem;
+  }
+  .facebook,
+  .twitter,
+  .linkedin {
+    width: 20rem;
+  }
+  .facebook img,
+  .twitter img,
+  .linkedin img {
+    width: 20rem;
+    height: 11rem;
+  }
+  .facebook > div:nth-child(1),
+  .twitter > div:nth-child(1),
+  .linkedin > div:nth-child(1) {
+    height: 11rem;
+  }
+}

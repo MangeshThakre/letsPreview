@@ -1,26 +1,68 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 body {
-  margin:0;
+  margin: 0;
 }
-.App{
-  background-color: #F9FBFD;
-  
-}
-
-
-p{
-  color : rgb(68 64 60/1)
+.App {
+  background-color: #f9fbfd;
 }
 
+p {
+  color: rgb(68 64 60/1);
+}
 
-.container{
+.container {
   padding: 4rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-
 a {
   text-decoration: none;
+}
+
+.footerDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem 0;
+  padding: 4rem;
+}
+
+.socials {
+  color: rgb(50, 50, 50);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.socials > span {
+  font-weight: 600;
+}
+
+.socials > img {
+  width: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .footerDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+    padding: 0rem;
+  }
+  .socials {
+    color: rgb(50, 50, 50);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: small;
+  }
 }

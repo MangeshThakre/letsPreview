@@ -3,7 +3,9 @@ import Home from "./component/home/home.js";
 import { useState, useEffect } from "react";
 import Preview from "./component/DisplayOutput/preview/preview";
 import InfoCard from "./component/DisplayOutput/metadatainfoCard/infoCard.js";
-import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import githubicon from "./assets/GitHub.png";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [metaTags, setMetaTegs] = useState({});
   const [showInfo, setShowInfo] = useState(false);
@@ -26,17 +28,17 @@ function App() {
     );
   }, [metaTags]);
 
-  // useEffect(() => {
-  //   async function fun() {
-  //     const response = await axios("https://metatags.io/");
-  //     const data = await response.data;
-  //     const parser = new DOMParser();
-  //     const window = parser.parseFromString(data, "text/html");
-  //     // console.log(window.querySelectorAll("meta"));
-  //   }
-  //   fun();
-  // });
-
+  const notify = (message, type) =>
+    toast[type](message, {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   return (
     <div className="App">
       <Home
@@ -44,6 +46,7 @@ function App() {
         setShowInfo={setShowInfo}
         url={url}
         setUrl={setUrl}
+        notify={notify}
       />
       <div className="container">
         {showInfo ? (
@@ -66,20 +69,26 @@ function App() {
             />
           </>
         ) : null}
-        <a
-          href="https://mangeshthakre.herokuapp.com"
-          target="_blank"
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            margin: "1rem 0",
-            cursor: "pointer",
-          }}
-        >
-          Build by Mangesh Thakre 🤖
-        </a>
+        <div target="_blank" className="footerDiv">
+          <a
+            className="socials"
+            href="https://mangeshthakre.cyclic.app/"
+            target="_blank"
+          >
+            Build by <span>Mangesh Thakre 🤖</span>
+          </a>
+          <a
+            target="_blank"
+            href="https://github.com/MangeshThakre/letsPreview"
+            className="socials"
+          >
+            <img src={githubicon} alt="git" />
+            <span>Source Code</span>
+          </a>
+        </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 }
