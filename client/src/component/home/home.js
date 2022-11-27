@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import loadingSvg from "../../assets/loading.svg";
 import arrow from "../../assets/arrow.svg";
-function Home({ setMetaTegs, setShowInfo, url, setUrl, notify }) {
+function Home({ setMetaTegs, setShowInfo, url, setUrl, handleAlert }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isValid, setIsVallid] = useState(true);
   const [warning, setWarning] = useState("");
@@ -39,7 +39,7 @@ function Home({ setMetaTegs, setShowInfo, url, setUrl, notify }) {
           .querySelector(".container")
           .scrollIntoView({ behavior: "smooth", block: "start" });
       } catch (error) {
-        notify(error.response.data.message, "error");
+        handleAlert(true, error.response.data.message);
         setIsVallid(false);
         setIsLoading(false);
         console.log(error);

@@ -3,10 +3,10 @@ import Home from "./component/home/home.js";
 import { useState, useEffect } from "react";
 import Preview from "./component/DisplayOutput/preview/preview";
 import InfoCard from "./component/DisplayOutput/metadatainfoCard/infoCard.js";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 import githubicon from "./assets/GitHub.png";
-import "react-toastify/dist/ReactToastify.css";
-import "react-toastify/dist/ReactToastify.min.css";
+// import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.min.css";
 function App() {
   const [metaTags, setMetaTegs] = useState({});
   const [showInfo, setShowInfo] = useState(false);
@@ -14,6 +14,11 @@ function App() {
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
+
+  const [alertPopUp, setAlertPopUp] = useState({
+    diaplay: true,
+    message: "",
+  });
 
   useEffect(() => {
     setTitle(metaTags.title ? metaTags?.title : metaTags?.og?.title);
@@ -29,17 +34,10 @@ function App() {
     );
   }, [metaTags]);
 
-  const notify = (message, type) =>
-    toast[type](message, {
-      position: "bottom-left",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+  function handleAlert(display, alertMessage) {
+    setAlertPopUp({ display, alertMessage });
+    setTimeout(() => setAlertPopUp({ display: false, alertMessage: "" }), 5000);
+  }
   return (
     <div className="App">
       <Home
@@ -47,7 +45,7 @@ function App() {
         setShowInfo={setShowInfo}
         url={url}
         setUrl={setUrl}
-        notify={notify}
+        handleAlert={handleAlert}
       />
       <div className="container">
         {showInfo ? (
@@ -88,18 +86,16 @@ function App() {
           </a>
         </div>
       </div>
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+      {/* alert pop up */}
+      {alertPopUp.display ? (
+        <dir className="alert_box ">
+          <div className="error" role="alert">
+            <span className="font-medium">Error!</span>{" "}
+            {alertPopUp.alertMessage}
+          </div>
+        </dir>
+      ) : null}
+      {/* alert pop up  end*/}
     </div>
   );
 }

@@ -45,6 +45,21 @@ a {
   width: 2rem;
 }
 
+.alert_box {
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  z-index: 2;
+}
+
+.error {
+  padding: 1rem;
+  font-size: medium;
+  color: red;
+  background-color: rgba(219, 48, 48, 0.49);
+  border-radius: 6px;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;

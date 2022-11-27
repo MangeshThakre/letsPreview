@@ -14,7 +14,10 @@ function Fb({ image, title, description, url, fullUrl }) {
           <img src={previewImg} alt=" facebook" />
         </div>
         <div>
-          <p class="fbBaseUrl" style={{ fontSize: "13px", margin: "6px  0" }}>
+          <p
+            className="fbBaseUrl"
+            style={{ fontSize: "13px", margin: "6px  0" }}
+          >
             {Newurl.toUpperCase()}
           </p>
           <h4 className="fbTitle" style={{ color: "black", fontWeight: "600" }}>
