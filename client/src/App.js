@@ -6,6 +6,7 @@ import InfoCard from "./component/DisplayOutput/metadatainfoCard/infoCard.js";
 import { ToastContainer, toast } from "react-toastify";
 import githubicon from "./assets/GitHub.png";
 import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.min.css";
 function App() {
   const [metaTags, setMetaTegs] = useState({});
   const [showInfo, setShowInfo] = useState(false);
@@ -87,8 +88,18 @@ function App() {
           </a>
         </div>
       </div>
-
-      <ToastContainer />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }
