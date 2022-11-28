@@ -1,5 +1,3 @@
-@import url(//fonts.googleapis.com/css?family=Lato:300:400);
-
 body {
   margin: 0;
 }
@@ -26,8 +24,6 @@ a {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  margin: 1rem 0;
-  padding: 4rem;
 }
 
 .socials {
