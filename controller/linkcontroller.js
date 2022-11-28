@@ -31,7 +31,7 @@ async function url(req, res) {
     if (shortIcon) favIconHref = shortIcon;
     // if favIconHref dont full link then concate the favincon with base url and return
     if (favIconHref == "") {
-      return "https://" + req.headers.host + "/static/faviconNotFound.png";
+      return "https://i.ibb.co/nsydfK7/favicon-Not-Found.png";
     } else if (favIconHref.indexOf("/") == 0) {
       return url.split("/")[0] + url.split("/")[2] + favIconHref;
     } else return favIconHref;

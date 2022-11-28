@@ -8,17 +8,15 @@ app.use(express.json());
 app.use(express.json());
 app.use(cors());
 
-// serve static image
-app.use("/static", express.static(path.join(__dirname, "assets")));
-app.use("/api", router);
-
 // prodiction
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
+  app.use("/api", router);
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 } else {
+  app.use("/api", router);
   app.get("/", (req, res) => {
     res.status(200).json({ success: true, data: "app is runing successfully" });
   });
