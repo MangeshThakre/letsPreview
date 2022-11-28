@@ -7,10 +7,11 @@ const path = require("path");
 app.use(express.json());
 app.use(express.json());
 app.use(cors());
-app.use("/api/", router);
 
 // serve static image
 app.use("/static", express.static(path.join(__dirname, "assets")));
+app.use("/api", router);
+
 // prodiction
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
@@ -19,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
   });
 } else {
   app.get("/", (req, res) => {
-    res.send("app is runing successfully");
+    res.status(200).json({ success: true, data: "app is runing successfully" });
   });
 }
 

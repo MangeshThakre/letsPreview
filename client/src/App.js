@@ -3,10 +3,7 @@ import Home from "./component/home/home.js";
 import { useState, useEffect } from "react";
 import Preview from "./component/DisplayOutput/preview/preview";
 import InfoCard from "./component/DisplayOutput/metadatainfoCard/infoCard.js";
-// import { ToastContainer, toast } from "react-toastify";
 import githubicon from "./assets/GitHub.png";
-// import "react-toastify/dist/ReactToastify.css";
-// import "react-toastify/dist/ReactToastify.min.css";
 function App() {
   const [metaTags, setMetaTegs] = useState({});
   const [showInfo, setShowInfo] = useState(false);
